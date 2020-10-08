@@ -1,0 +1,969 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Feedstock to Function Tool, a project that harnesses the power of machine learning to predict properties of high-potential molecules derived from biomass and evaluates the cost, benefits, and risk of promising biobased molecules or biofuels to enable faster, less expensive bioprocess optimization and scale-up.">
+      
+      
+        <link rel="canonical" href="https://feedstock-to-function.lbl.gov/user-guide/rest-api/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>REST API - Feedstock to Function Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.077507d7.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#feedstock-to-function-api-v1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://feedstock-to-function.lbl.gov" title="Feedstock to Function Docs" class="md-header-nav__button md-logo" aria-label="Feedstock to Function Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Feedstock to Function Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              REST API
+            
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Feedstock-to-Function/ftf-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Feestock-to-Function/ftf-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://feedstock-to-function.lbl.gov" title="Feedstock to Function Docs" class="md-nav__button md-logo" aria-label="Feedstock to Function Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Feedstock to Function Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Feedstock-to-Function/ftf-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Feestock-to-Function/ftf-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Methodology
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Methodology" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Methodology
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../methodology/property-prediction/" title="Property Prediction Algorighms" class="md-nav__link">
+      Property Prediction Algorighms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      User Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="User Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        User Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        REST API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="REST API" class="md-nav__link md-nav__link--active">
+      REST API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" class="md-nav__link">
+    API keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    API Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-uri-format" class="md-nav__link">
+    General URI Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-response-format" class="md-nav__link">
+    General Response Format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources_1" class="md-nav__link">
+    Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chemicals" class="md-nav__link">
+    chemicals
+  </a>
+  
+    <nav class="md-nav" aria-label="chemicals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-template" class="md-nav__link">
+    Request Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blends" class="md-nav__link">
+    blends
+  </a>
+  
+    <nav class="md-nav" aria-label="blends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-template_1" class="md-nav__link">
+    Request Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../database-updates/" title="Database Updates" class="md-nav__link">
+      Database Updates
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" class="md-nav__link">
+    API keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    API Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-uri-format" class="md-nav__link">
+    General URI Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-response-format" class="md-nav__link">
+    General Response Format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources_1" class="md-nav__link">
+    Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chemicals" class="md-nav__link">
+    chemicals
+  </a>
+  
+    <nav class="md-nav" aria-label="chemicals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-template" class="md-nav__link">
+    Request Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blends" class="md-nav__link">
+    blends
+  </a>
+  
+    <nav class="md-nav" aria-label="blends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-template_1" class="md-nav__link">
+    Request Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Feedstock-to-Function/ftf-docs/edit/master/docs/user-guide/rest-api.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="feedstock-to-function-api-v1">Feedstock to Function API (v1)<a class="headerlink" href="#feedstock-to-function-api-v1" title="Permanent link">&para;</a></h1>
+<p>The Feedstock to Function API (FTF-API) is an open API for accessing 
+our chemical properties data
+based on REpresentational State Transfer (REST) principles. In a RESTful system,
+information is organized into <strong>resources</strong>, each of which is uniquely
+identified via a uniform resource identifier (URI). This page documents the 
+first release (v1) of the FTF-API and provides examples of common use-cases.</p>
+<!--- 
+(While the FTF-API is designed to be code base agnostic and can conceivably be
+used
+with any programming language supporting basic http requests, a convenient
+wrapper to MAPI has been implemented in the [Python Materials Genomics
+(pymatgen)](http://pypi.python.org/pypi/pymatgen) library to facilitate
+researchers in using the MAPI. Please see the [#pymatgen
+wrapper](#pymatgen-wrapper) section.
+--->
+
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p>In the Feedstock to Function Tool, resources are generally packages of 
+information about a chemical substance or blend of substances. Currently
+supported information types (v1 of the REST API) include the following:</p>
+<p><strong>Chemical</strong> - Identification attributes (i.e. SMILES, InChIKey, IUPAC, etc.) 
+and properties (experimental and/or predicted) of a chemical
+substance.</p>
+<p><strong>Blend</strong> - Identification attributes
+and properties (experimental and/or predicted) of a chemical blend.</p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<p>SSL Encryption All requests to the FTF-API must be done over HTTPS.
+Non-secure http requests are not allowed and will result in a HTTP 403
+(Forbidden) response.</p>
+<h3 id="api-keys">API keys<a class="headerlink" href="#api-keys" title="Permanent link">&para;</a></h3>
+<p>To access the FTF-API, you will need your API key, except for certain free
+queries that do not require a key. You can obtain your API key by logging into
+the Feedstock to Function website, and going to 
+<a href="https://feedstock-to-function.lbl.gov/accounts/change">your profile page</a>. 
+Your API key and a button to
+regenerate the key is provided at the bottom of the page.</p>
+<p>Note that the API key effectively allows access to FTF data via
+your account. You should therefore make all efforts to keep it secret and under
+no circumstances should you share your API key with anyone. You will be held
+responsible for any violations conducted using your API key. Should anyone else
+require access to the FTF-API, they should register for an 
+account on our <a href="https://feedstock-to-function.lbl.gov/accounts/create">website</a> 
+and generate their own API keys.</p>
+<p>All FTF-API https requests must supply API key by one of the following methods:</p>
+<ul>
+<li>As an x-api-key header (recommended method), e.g., </li>
+</ul>
+<div class="codehilite"><pre><span></span><code>{‘X-API-KEY’: ‘YOUR_API_KEY’}
+</code></pre></div>
+
+<ul>
+<li>As a GET request variable e.g. </li>
+</ul>
+<div class="codehilite"><pre><span></span><code>{REQUEST_URI}?API_KEY={YOUR_API_KEY}
+</code></pre></div>
+
+<p>The following is an example of a full url requesting for information of the
+material with SMILES ID CCO with the API key supplied as a GET variable.</p>
+<div class="codehilite"><pre><span></span><code>https://www.feedstock-to-function.lbl.gov/api/v2/chemicals/?smiles=CCO&amp;API_KEY={YOUR_API_KEY}
+</code></pre></div>
+
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p>You agree not to use automated scripts to collect large fractions of the
+database and disseminate them. You may collect large fractions of the database
+for analysis and to present processed results with proper attribution. If you
+plan to download large datasets, please email feedstocktofunction@gmail.com
+with the email address associated with your account and with your use case so
+that we can avoid flagging your account as abusing the service. We may also
+suggest an efficient way for you to obtain the data you need. We reserve the
+right to disable API keys as a security precaution against bots.</p>
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
+<h3 id="general-uri-format">General URI Format<a class="headerlink" href="#general-uri-format" title="Permanent link">&para;</a></h3>
+<p>All URIs in the FTF-API are of the general form</p>
+<p><code>https://www.feedstock-to-function.lbl.gov/api/v1/{resource_type}[/{parameters}]</code></p>
+<ol>
+<li>The initial part of the URI (https://www.feedstock-to-function.lbl.gov/api/v2/) is a
+preamble, specifying a https REST request. The v2 denotes version 2 of the MAPI,
+to provide flexibility to support multiple versions of the API in future. 2.
+{request_type} specifies the kind of information or operation being requested.
+Currently supported request types include "materials", "battery", "reaction",
+"mpquery" and "api_check". 3. {identifier} is an identifier for the specific
+information requested. Depending on the {request_type}, an identifier may or may
+not be necessary. 4. {parameters} - Some requests require additional parameters
+to be provided.</li>
+</ol>
+<h3 id="general-response-format">General Response Format<a class="headerlink" href="#general-response-format" title="Permanent link">&para;</a></h3>
+<p>All responses from the FTF-API are in the JavaScript Object Notation
+(JSON). XML is not supported currently. The responses generally are of the
+following form:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;count&quot;: {NUMBER OF QUERY RESULTS},
+  &quot;next&quot;: {LINK TO NEXT 10 QUERY RESULTS}
+  &quot;previous&quot;: {LINK TO PREVIOUS 10 QUERY RESULTS},
+  &quot;results&quot;: [
+    {FIRST 10 QUERY RESULTS}
+   ]
+}
+</code></pre></div>
+
+<p>Note that the results for a given request are paginated in groups 
+of 10. If the size of the results set is less than 10, the <code>next</code> and <code>previous</code>
+fields of the response object will be <code>null</code>. Otherwise, they will provide
+valid links to the next and previous 'page' of results. </p>
+<h2 id="resources_1">Resources<a class="headerlink" href="#resources_1" title="Permanent link">&para;</a></h2>
+<h3 id="chemicals"><code>chemicals</code><a class="headerlink" href="#chemicals" title="Permanent link">&para;</a></h3>
+<h4 id="request-template">Request Template<a class="headerlink" href="#request-template" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
+</code></pre></div>
+
+<p>Obtain chemical substance data based on an identifier. The response is always a
+list of associative arrays, i.e., <code>[ {key:value, ... }, {... }, ...]</code>. Valid
+identifiers include <code>name</code>, <code>smiles</code>, <code>iupac</code>, <code>inchi</code>, <code>cas</code> and <code>inchi</code>.
+For example, the following query will return the chemical substance 
+with the SMILES ID CCO (ethanol):</p>
+<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO
+</code></pre></div>
+
+<p>Note that since no fields were specified in the optional <code>fields</code> portion of the
+query string, this request will yield a response that include all attributes
+of the chemicals in the result set. If, for example we were only interested
+in retrieving the chemical formula, IUPAC name and InChI key for ethanol, we 
+could specify these fields of interest in the query as such:</p>
+<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO&amp;fields=formula,iupac,inchi
+</code></pre></div>
+
+<h4 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">&para;</a></h4>
+<p>The following fields may be specified as comma-separated values for the <code>fields</code>
+query parameter to request a specific subset of information 
+be included in the results set of a <code>chemicals</code> query:</p>
+<p><code>name</code> </p>
+<ul>
+<li>molecular name of a chemical substance</li>
+</ul>
+<p><code>smiles</code></p>
+<ul>
+<li>SMILES ID of a chemical substance</li>
+</ul>
+<p><code>formula</code></p>
+<ul>
+<li>Chemical formula of a chemical substance</li>
+</ul>
+<p><code>inchi</code></p>
+<ul>
+<li>InChI key of a chemical substance</li>
+</ul>
+<p><code>iupac</code></p>
+<ul>
+<li>IUPAC name of a chemical substance</li>
+</ul>
+<p><code>synonyms</code></p>
+<ul>
+<li>Common synonyms for the molecular name of a chemical substance</li>
+</ul>
+<p><code>bp_exp</code></p>
+<ul>
+<li>Experimentally measured boiling point of a chemical substance</li>
+</ul>
+<p><code>mp_exp</code></p>
+<ul>
+<li>Experimentally measured melting point of a chemical substance</li>
+</ul>
+<p><code>fp_exp</code></p>
+<ul>
+<li>Experimentally measured flash point of a chemical substance</li>
+</ul>
+<p><code>cn_exp</code></p>
+<ul>
+<li>Experimentally measured cetane number of a chemical substance</li>
+</ul>
+<p><code>dcn_exp</code></p>
+<ul>
+<li>Experimentally measured derived cetane number of a chemical substance</li>
+</ul>
+<p><code>ysi_exp</code></p>
+<ul>
+<li>Experimentally measured yield sooting index of a chemical substance</li>
+</ul>
+<p><code>bp_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured boiling point of a chemical substance</li>
+</ul>
+<p><code>mp_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured melting boiling point of a 
+    chemical substance</li>
+</ul>
+<p><code>fp_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured flash point of a chemical substance</li>
+</ul>
+<p><code>cn_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured cetane number of a chemical substance</li>
+</ul>
+<p><code>dcn_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured derived cetane number of a chemical 
+    substance</li>
+</ul>
+<p><code>ysi_exp_srcs</code></p>
+<ul>
+<li>Source(s) of experimentally measured yield sooting index of a chemical 
+    substance</li>
+</ul>
+<p><code>bp_pred</code></p>
+<ul>
+<li>Predicted boiling point of a chemical substance</li>
+</ul>
+<p><code>mp_pred</code></p>
+<ul>
+<li>Predicted melting point of a chemical substance</li>
+</ul>
+<p><code>fp_pred</code></p>
+<ul>
+<li>Predicted flash point of a chemical substance</li>
+</ul>
+<p><code>cn_pred</code></p>
+<ul>
+<li>Predicted cetane number of a chemical substance</li>
+</ul>
+<p><code>dcn_pred</code></p>
+<ul>
+<li>Predicted derived cetane number of a chemical substance</li>
+</ul>
+<p><code>ysi_pred</code></p>
+<ul>
+<li>Predicted yield sooting index of a chemical substance</li>
+</ul>
+<p><code>bp_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted boiling point of a chemical substance</li>
+</ul>
+<p><code>mp_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted melting point of a chemical substance</li>
+</ul>
+<p><code>fp_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted flash point of a chemical substance</li>
+</ul>
+<p><code>cn_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted cetane number of a chemical substance</li>
+</ul>
+<p><code>dcn_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted derived cetane number of a chemical substance</li>
+</ul>
+<p><code>ysi_pred_perc_err</code></p>
+<ul>
+<li>Percent error of predicted yield sooting index of a chemical substance</li>
+</ul>
+<p><code>bp_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted boiling point of a chemical substance</li>
+</ul>
+<p><code>mp_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted melting point of a chemical substance</li>
+</ul>
+<p><code>fp_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted flash point of a chemical substance</li>
+</ul>
+<p><code>cn_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted cetane number of a chemical substance</li>
+</ul>
+<p><code>dcn_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted derived cetane number of a chemical substance</li>
+</ul>
+<p><code>ysi_pred_abs_err</code></p>
+<ul>
+<li>Absolute error of predicted yield sooting index of a chemical substance</li>
+</ul>
+<p><code>bp_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted boiling point 
+    values of a chemical substance</li>
+</ul>
+<p><code>mp_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted melting point 
+    values of a chemical substance</li>
+</ul>
+<p><code>fp_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted flash point 
+    values of a chemical substance</li>
+</ul>
+<p><code>cn_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted cetane number 
+    values of a chemical substance</li>
+</ul>
+<p><code>dcn_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted derived cetane
+    number values of a chemical substance</li>
+</ul>
+<p><code>ysi_unit</code></p>
+<ul>
+<li>Scientific unit of experimentally measured and predicted derived yield
+    sooting index values of a chemical substance</li>
+</ul>
+<h3 id="blends"><code>blends</code><a class="headerlink" href="#blends" title="Permanent link">&para;</a></h3>
+<h4 id="request-template_1">Request Template<a class="headerlink" href="#request-template_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/blends/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../methodology/property-prediction/" title="Property Prediction Algorighms" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Property Prediction Algorighms
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../database-updates/" title="Database Updates" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Database Updates
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by the Feedstock to Function Team
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../static/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
