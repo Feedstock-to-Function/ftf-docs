@@ -640,17 +640,20 @@ right to disable API keys as a security precaution against bots.</p>
 <p>All URIs in the FTF-API are of the general form</p>
 <p><code>https://feedstock-to-function.lbl.gov/api/v1/{resource_type}[/{parameters}]</code></p>
 <ol>
-<li>The initial part of the URI (https://feedstock-to-function.lbl.gov/api/v1/) 
+<li>
+<p>The initial part of the URI (https://feedstock-to-function.lbl.gov/api/v1/) 
 is a preamble, specifying a https REST request. 
 The v1 denotes version 1 of the API,
-to provide flexibility to support multiple versions of the API in future. </li>
-</ol>
-<p>2.{resource_type} specifies the kind of information or 
+to provide flexibility to support multiple versions of the API in future. </p>
+</li>
+<li>
+<p><code>{resource_type}</code> specifies the kind of information or 
 operation being requested.
-Currently supported request types include "chemicals" and "blends"</p>
-<ol>
-<li>{parameters} - Some requests require additional parameters
-to be provided.</li>
+Currently supported request types include <code>chemicals</code> and <code>blends</code>.</p>
+</li>
+<li>
+<p><code>{parameters}</code> - Optionals parameters to be provided (details below).</p>
+</li>
 </ol>
 <h3 id="general-response-format">General Response Format<a class="headerlink" href="#general-response-format" title="Permanent link">&para;</a></h3>
 <p>All responses from the FTF-API are in the JavaScript Object Notation
