@@ -623,7 +623,7 @@ and generate their own API keys.</p>
 
 <p>The following is an example of a full url requesting for information of the
 material with SMILES ID CCO with the API key supplied as a GET variable.</p>
-<div class="codehilite"><pre><span></span><code>https://www.feedstock-to-function.lbl.gov/api/v2/chemicals/?smiles=CCO&amp;API_KEY={YOUR_API_KEY}
+<div class="codehilite"><pre><span></span><code>https://feedstock-to-function.lbl.gov/api/v2/chemicals/?smiles=CCO&amp;API_KEY={YOUR_API_KEY}
 </code></pre></div>
 
 <h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
@@ -638,9 +638,9 @@ right to disable API keys as a security precaution against bots.</p>
 <h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
 <h3 id="general-uri-format">General URI Format<a class="headerlink" href="#general-uri-format" title="Permanent link">&para;</a></h3>
 <p>All URIs in the FTF-API are of the general form</p>
-<p><code>https://www.feedstock-to-function.lbl.gov/api/v1/{resource_type}[/{parameters}]</code></p>
+<p><code>https://feedstock-to-function.lbl.gov/api/v1/{resource_type}[/{parameters}]</code></p>
 <ol>
-<li>The initial part of the URI (https://www.feedstock-to-function.lbl.gov/api/v2/) is a
+<li>The initial part of the URI (https://feedstock-to-function.lbl.gov/api/v2/) is a
 preamble, specifying a https REST request. The v2 denotes version 2 of the MAPI,
 to provide flexibility to support multiple versions of the API in future. 2.
 {request_type} specifies the kind of information or operation being requested.
@@ -671,7 +671,7 @@ valid links to the next and previous 'page' of results. </p>
 <h2 id="resources_1">Resources<a class="headerlink" href="#resources_1" title="Permanent link">&para;</a></h2>
 <h3 id="chemicals"><code>chemicals</code><a class="headerlink" href="#chemicals" title="Permanent link">&para;</a></h3>
 <h4 id="request-template">Request Template<a class="headerlink" href="#request-template" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
+<div class="codehilite"><pre><span></span><code>GET https://feedstock-to-function.lbl.gov/api/v1/chemicals/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
 </code></pre></div>
 
 <p>Obtain chemical substance data based on an identifier. The response is always a
@@ -679,7 +679,7 @@ list of associative arrays, i.e., <code>[ {key:value, ... }, {... }, ...]</code>
 identifiers include <code>name</code>, <code>smiles</code>, <code>iupac</code>, <code>inchi</code>, <code>cas</code> and <code>inchi</code>.
 For example, the following query will return the chemical substance 
 with the SMILES ID CCO (ethanol):</p>
-<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO
+<div class="codehilite"><pre><span></span><code>GET https://feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO
 </code></pre></div>
 
 <p>Note that since no fields were specified in the optional <code>fields</code> portion of the
@@ -687,7 +687,7 @@ query string, this request will yield a response that include all attributes
 of the chemicals in the result set. If, for example we were only interested
 in retrieving the chemical formula, IUPAC name and InChI key for ethanol, we 
 could specify these fields of interest in the query as such:</p>
-<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO&amp;fields=formula,iupac,inchi
+<div class="codehilite"><pre><span></span><code>GET https://feedstock-to-function.lbl.gov/api/v1/chemicals/?smiles=CCO&amp;fields=formula,iupac,inchi
 </code></pre></div>
 
 <h4 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">&para;</a></h4>
@@ -873,7 +873,7 @@ be included in the results set of a <code>chemicals</code> query:</p>
 </ul>
 <h3 id="blends"><code>blends</code><a class="headerlink" href="#blends" title="Permanent link">&para;</a></h3>
 <h4 id="request-template_1">Request Template<a class="headerlink" href="#request-template_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>GET https://www.feedstock-to-function.lbl.gov/api/v1/blends/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
+<div class="codehilite"><pre><span></span><code>GET https://feedstock-to-function.lbl.gov/api/v1/blends/?{IDENTIFIER}={VALUE}[&amp;fields={FIELD_1,FIELD_2,FIELD_3,...}]
 </code></pre></div>
                 
               
