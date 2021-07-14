@@ -20,7 +20,7 @@
     
     
       
-        <title>Blend tool - Feedstock to Function Docs</title>
+        <title>Blend Tool - Feedstock to Function Docs</title>
       
     
     
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Blend tool
+              Blend Tool
             
           </span>
         </div>
@@ -157,10 +157,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Methodology
@@ -183,6 +185,25 @@
     <a href="../property-prediction/" title="Property Prediction" class="md-nav__link">
       Property Prediction
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Blend Tool" class="md-nav__link md-nav__link--active">
+      Blend Tool
+    </a>
+    
   </li>
 
         
@@ -261,7 +282,7 @@
                   
                 
                 
-                  <h1>Blend tool</h1>
+                  <h1>Blend Tool</h1>
                 
                 <p>We developed our bio-jet fuel blend property prediction tool with supervised machine learning models that correlate each blend’s infrared spectroscopy data with three key fuel properties-- flash point, freezing point, and cetane number. Our current models predict fuel properties of select high-interest bio-based molecules combined with the jet fuel F-24, using open-source, Python-based, supervised machine learning packages. Specifically, we trained and tested multi-linear regression and tree-based machine learning models that correlate each blend's ATR-FTIR spectroscopy data with its corresponding fuel properties. We utilized F-24 jet fuel blend data, gasoline surrogate blend data, and neat molecule data to train and test the models. We collected ATR-FTIR spectroscopy of the jet fuel blends at additive-relevant concentrations of 10%, 20%, and 30% to use in the training and validation process. Generally, mid-range blend concentrations were included in the testing set and corresponding lower and upper range blend concentrations and neat molecules were included in the training set.</p>
 <p>For feature selection, we used the regularized multi-linear regression algorithm, LASSO, that systematically reduces the available independent variables to a much smaller set of the most important features to reduce the likelihood of an overfit, over-complicated model. The threshold associated with this reduction was tuned with 5-fold cross validation. The features from this regularized model were further reduced by consolidating the remaining highly correlated variables to eliminate redundancy. We tested consolidating variables with Spearman correlation coefficients greater than 0.95, 0.9, 0.8, and 0.7. We tested these reduced feature sets as inputs to various algorithms from the Scikit-learn library including both linear models and nonlinear models such as tree-based ensemble models. We chose the best model for each property by examining which had similar train and test performance-- indicating less overfitting. This routine encourages simplified models that still retain the necessary complexity to well-predict the fuel properties.</p>
@@ -280,6 +301,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../property-prediction/" title="Property Prediction" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Property Prediction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../user-guide/rest-api/" title="REST API" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                REST API
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
